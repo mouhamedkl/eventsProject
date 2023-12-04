@@ -80,16 +80,22 @@ public class EventServicesImpl implements IEventServices{
 
     @Override
     public Logistics addAffectLog(Logistics logistics, String descriptionEvent) {
-      Event event = eventRepository.findByDescription(descriptionEvent);
-      if(event == null){
-          Set<Logistics> logisticsSet = new HashSet<>();
-          logisticsSet.add(logistics);
-          event.setLogistics(logisticsSet);
-          eventRepository.save(event);
-      }
-      else{
-          event.getLogistics().add(logistics);
-      }
+        Event event = eventRepository.findByDescription(descriptionEvent);
+
+        if (event != null) {
+            Set<Logistics> logisticsSet = event.getLogistics();
+
+            if (logisticsSet == null) {
+                logisticsSet = new HashSet<>();
+                event.setLogistics(logisticsSet);
+            }
+
+            logisticsSet.add(logistics);
+            eventRepository.save(event);
+        } else {
+            System.out.println("ttttt");
+        }
+
         return logisticsRepository.save(logistics);
     }
 
