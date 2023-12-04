@@ -1,11 +1,13 @@
 package tn.esprit.eventsproject.services;
 
+import org.springframework.stereotype.Repository;
 import tn.esprit.eventsproject.entities.Event;
 import tn.esprit.eventsproject.entities.Logistics;
 import tn.esprit.eventsproject.entities.Participant;
 
 import java.time.LocalDate;
 import java.util.List;
+@Repository
 
 public interface IEventServices {
     public Participant addParticipant(Participant participant);
