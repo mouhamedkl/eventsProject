@@ -9,8 +9,7 @@ services:
       - MYSQL_DATABASE=eventprojet
     ports:
       - 3307:3306
-    volumes:
-      - db:/var/lib/mysql
+
   app:
     container_name: app
     depends_on:
