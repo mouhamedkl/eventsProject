@@ -45,6 +45,11 @@ public class EventServicesImpl implements IEventServices{
     }
 
     @Override
+    public Event update(Event event) {
+        return eventRepository.save(event);
+    }
+
+    @Override
     public Event addAffectEvenParticipant(Event event) {
         Set<Participant> participants = event.getParticipants();
         for(Participant aParticipant:participants){
@@ -58,6 +63,11 @@ public class EventServicesImpl implements IEventServices{
             }
         }
         return eventRepository.save(event);
+    }
+
+    @Override
+    public Event getone(int id) {
+        return eventRepository.findById(id).get();
     }
 
     @Override
@@ -115,6 +125,11 @@ public class EventServicesImpl implements IEventServices{
             log.info("Cout de l'Event "+event.getDescription()+" est "+ somme);
 
         }
+    }
+
+    @Override
+    public List<Event> getall() {
+        return eventRepository.findAll();
     }
 
 }
