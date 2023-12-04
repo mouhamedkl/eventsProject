@@ -72,10 +72,10 @@ public class EventServicesImpl implements IEventServices{
         return null;
     }
 
-//    @Override
-//    public Event findone(int id) {
-//        return eventRepository.findById(id).get();
-//    }
+
+    public Event findone(int id) {
+        return eventRepository.findById(id).get();
+    }
 
 
     @Override

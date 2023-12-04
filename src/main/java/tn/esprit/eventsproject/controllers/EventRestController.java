@@ -40,4 +40,8 @@ public class EventRestController {
     public List<Event> getall() {
         return eventServices.getall();
     }
+    @GetMapping("/getbyid")
+    public Event getbyid(@RequestParam int id) {
+        return eventServices.findone(id);
+    }
 }
