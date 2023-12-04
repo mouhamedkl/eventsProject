@@ -49,12 +49,12 @@ class TestServiceEventImplTest {
         Event addedEvent = eventService.addAffectEvenParticipant(event);
         Assertions.assertNotNull(addedEvent);
     }
-//    @Test
-//    void testRetrieveEvent() {
-//        Mockito.when(eventRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(event));
-//        Event retrievedEvent = eventService.getone(1);
-//        Assertions.assertNotNull(retrievedEvent);
-//    }
+    @Test
+    void testRetrieveEvent() {
+        Mockito.when(eventRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(event));
+        Event retrievedEvent = eventService.findone(1);
+        Assertions.assertNotNull(retrievedEvent);
+    }
     @Test
     void testUpdateEvent() {
         Event updatedEvent = new Event(1, "Updated Event", LocalDate.now().plusDays(2), LocalDate.now().plusDays(6), 120.0f, new HashSet<>(), new HashSet<>());
@@ -65,10 +65,10 @@ class TestServiceEventImplTest {
         Assertions.assertEquals(120.0f, updated.getCout());
     }
 
-//    @Test
-//    void testDeleteEvent() {
-//        Mockito.doNothing().when(eventRepository).deleteById(1L);
-//        Object isDeleted = eventService.deleteEvent(1L);
-//        Assertions.assertNull(isDeleted);
-//    }
+    @Test
+    void testDeleteEvent() {
+        Mockito.doNothing().when(eventRepository).deleteById(1);
+        Object isDeleted = eventService.delete(1);
+        Assertions.assertNull(isDeleted);
+    }
 }

@@ -49,22 +49,33 @@ public class EventServicesImpl implements IEventServices{
         return eventRepository.save(event);
     }
 
+//    @Override
+//    public Event addAffectEvenParticipant(Event event) {
+//        Set<Participant> participants = event.getParticipants();
+//        for(Participant aParticipant:participants){
+//            Participant participant = participantRepository.findById(aParticipant.getIdPart()).orElse(null);
+//            if(participant.getEvents() == null){
+//                Set<Event> events = new HashSet<>();
+//                events.add(event);
+//                participant.setEvents(events);
+//            }else {
+//                participant.getEvents().add(event);
+//            }
+//        }
+//        return eventRepository.save(event);
+//    }
+
     @Override
-    public Event addAffectEvenParticipant(Event event) {
-        Set<Participant> participants = event.getParticipants();
-        for(Participant aParticipant:participants){
-            Participant participant = participantRepository.findById(aParticipant.getIdPart()).orElse(null);
-            if(participant.getEvents() == null){
-                Set<Event> events = new HashSet<>();
-                events.add(event);
-                participant.setEvents(events);
-            }else {
-                participant.getEvents().add(event);
-            }
-        }
-        return eventRepository.save(event);
+    public Object delete(int id) {
+
+           eventRepository.deleteById(id); ;
+        return null;
     }
 
+    @Override
+    public Event findone(int id) {
+        return eventRepository.findById(id).get();
+    }
 
 
     @Override

@@ -15,4 +15,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     List<Event> findByParticipants_NomAndParticipants_PrenomAndParticipants_Tache(String nom, String prenom, Tache tache);
 
 
+
 }
