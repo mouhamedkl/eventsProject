@@ -12,7 +12,7 @@ public interface IEventServices {
     public Event addAffectEvenParticipant(Event event, int idParticipant);
     public Event update(Event event);
     public Event addAffectEvenParticipant(Event event);
-    public Event getone(int id);
+
     public Logistics addAffectLog(Logistics logistics, String descriptionEvent);
     public List<Logistics> getLogisticsDates(LocalDate date_debut, LocalDate date_fin);
     public void calculCout();

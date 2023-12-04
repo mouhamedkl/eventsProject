@@ -65,10 +65,7 @@ public class EventServicesImpl implements IEventServices{
         return eventRepository.save(event);
     }
 
-    @Override
-    public Event getone(int id) {
-        return eventRepository.findById(id).get();
-    }
+
 
     @Override
     public Logistics addAffectLog(Logistics logistics, String descriptionEvent) {
